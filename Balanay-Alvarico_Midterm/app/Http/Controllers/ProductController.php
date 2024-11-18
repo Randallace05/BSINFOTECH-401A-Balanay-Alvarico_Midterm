@@ -18,17 +18,23 @@ class ProductController extends Controller
         return view('products.create');
     }
 
+   
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restrict file types
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Product::create($request->all());
-        return redirect()->route('products.index')->with('success', 'Product created successfully.');
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $validated['image'] = $path;
+        }
+
+        Product::create($validated);
+        return redirect()->route('products.index')->with('success', 'Product created successfully!');
     }
 
     public function show(Product $product)
@@ -47,6 +53,10 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
         ]);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $validated['image'] = $path;
+        }
 
         $product->update($request->all());
         return redirect()->route('products.index')->with('success', 'Product updated successfully.');

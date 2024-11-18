@@ -81,7 +81,7 @@
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" value="{{ $product->name }}" required>
             
-            <label for="price">Price (USD):</label>
+            <label for="price">Price (₱):</label>
             <input type="number" id="price" name="price" step="0.01" value="{{ $product->price }}" required>
             
             <label for="description">Description:</label>

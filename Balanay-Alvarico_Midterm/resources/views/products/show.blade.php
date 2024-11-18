@@ -65,7 +65,7 @@
     <div class="container">
         <h1>{{ $product->name }}</h1>
         <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image">
-        <p class="price">Price: $<span>{{ $product->price }}</span></p>
+        <p class="price">Price: ₱<span>{{ $product->price }}</span></p>
         <p>Description: {{ $product->description }}</p>
         <a href="{{ route('products.index') }}">Back to Shop</a>
     </div>

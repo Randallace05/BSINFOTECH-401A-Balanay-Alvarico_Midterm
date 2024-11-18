@@ -31,9 +31,12 @@
     }
 </style>
 <body>
-    <h1>{{ $product->name }}</h1>
-    <p>Price: {{ $product->price }}</p>
-    <p>Description: {{ $product->description }}</p>
-    <a href="{{ route('products.index') }}">Back</a>
+    <div class="container">
+        <h1>{{ $product->name }}</h1>
+        <img src="{{ asset('storage/ ' . $product->image) }}" alt="Product Image">
+        <p>Price: {{ $product->price }}</p>
+        <p>Description: {{ $product->description }}</p>
+        <a href="{{ route('products.index') }}">Back</a>
+    </div>
 </body>
 </html>

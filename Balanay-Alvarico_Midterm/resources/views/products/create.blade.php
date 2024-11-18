@@ -134,15 +134,19 @@
         <h1>Add Chili Garlic Product</h1>
         <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            {{-- NAME --}}
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter product name" required>
 
+            {{-- PRICE --}}
             <label for="price">Price (₱):</label>
             <input type="number" id="price" step="0.01" name="price" placeholder="Enter price" required>
-
+            
+            {{-- DESCRIPTION --}}
             <label for="description">Description:</label>
             <textarea id="description" name="description" placeholder="Describe your spicy delight..."></textarea>
             
+            {{-- IMAGE --}}
             <label for="image">Product Image:</label>
             <div class="center">
                 <label class="custum-file-upload" for="file">

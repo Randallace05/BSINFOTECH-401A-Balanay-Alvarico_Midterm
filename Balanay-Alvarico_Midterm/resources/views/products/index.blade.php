@@ -114,6 +114,9 @@
     </style>
 </head>
 <body>
+@section('content')
+    
+@endsection
     <div class="container">
         <h1>Chili Garlic Store</h1>
         <a href="{{ route('products.create') }}" class="add-product">Add New Product</a>

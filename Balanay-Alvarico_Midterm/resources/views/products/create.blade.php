@@ -89,7 +89,7 @@
             <label for="name">Product Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter product name" required>
 
-            <label for="price">Price ($):</label>
+            <label for="price">Price (₱):</label>
             <input type="number" id="price" step="0.01" name="price" placeholder="Enter price" required>
 
             <label for="description">Description:</label>
@@ -101,7 +101,7 @@
             <button type="submit">Add Product</button>
         </form>
         <div class="footer">
-            <p><a href="/">Return to Chili Garlic Store</a></p>
+            <p><a href="{{ route('products.index') }}">Back to Shop</a></p>
         </div>
     </div>
 </body>

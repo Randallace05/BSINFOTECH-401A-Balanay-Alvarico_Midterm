@@ -129,7 +129,7 @@
                     <div class="no-image">No Image</div>
                 @endif
                 <h3>{{ $product->name }}</h3>
-                <p>Price: ${{ $product->price }}</p>
+                <p> ₱ {{ $product->price }}</p>
                 <p>{{ $product->description }}</p>
                 <div class="actions">
                     <a href="{{ route('products.show', $product) }}" class="view">View</a>

@@ -115,7 +115,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Chili Garlic Store</h1>
+        <h1>Store</h1>
         <a href="{{ route('products.create') }}" class="add-product">Add New Product</a>
         @if(session('success'))
             <p style="color: green; font-weight: bold;">{{ session('success') }}</p>

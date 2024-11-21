@@ -4,30 +4,48 @@
     <title>Chili Garlic Store</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff5e6;
+            background-color: #fef6e4;
             color: #333;
+        }
+        header {
+            background-color: #ff6600;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-family: 'Georgia', serif;
+        }
+        header nav {
+            margin-top: 10px;
+        }
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        header nav a:hover {
+            color: #ffd700;
         }
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 20px auto;
             padding: 20px;
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            text-align: center;
-            color: #ff3300;
-            margin-bottom: 20px;
-            font-family: 'Georgia', serif;
-        }
         .add-product {
             display: inline-block;
-            margin-bottom: 20px;
-            background-color: #ff6600;
+            margin: 20px 0;
+            background-color: #28a745;
             color: white;
             padding: 12px 20px;
             text-decoration: none;
@@ -36,7 +54,7 @@
             transition: background-color 0.3s ease;
         }
         .add-product:hover {
-            background-color: #cc5200;
+            background-color: #218838;
         }
         .product-list {
             display: flex;
@@ -106,6 +124,24 @@
         .product-card .actions form button:hover {
             background-color: #c82333;
         }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #ffd700;
+        }
         @media (max-width: 768px) {
             .product-card {
                 width: 100%;
@@ -114,11 +150,15 @@
     </style>
 </head>
 <body>
-@section('content')
-    
-@endsection
+    <header>
+        <h1>Chili Garlic Store</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
     <div class="container">
-        <h1>Store</h1>
         <a href="{{ route('products.create') }}" class="add-product">Add New Product</a>
         @if(session('success'))
             <p style="color: green; font-weight: bold;">{{ session('success') }}</p>
@@ -132,7 +172,7 @@
                     <div class="no-image">No Image</div>
                 @endif
                 <h3>{{ $product->name }}</h3>
-                <p> ₱ {{ $product->price }}</p>
+                <p>₱ {{ $product->price }}</p>
                 <p>{{ $product->description }}</p>
                 <div class="actions">
                     <a href="{{ route('products.show', $product) }}" class="view">View</a>
@@ -147,5 +187,8 @@
             @endforeach
         </div>
     </div>
+    <footer>
+        <p>&copy; 2024 Chili Garlic Store. All Rights Reserved. <a href="#privacy-policy">Privacy Policy</a></p>
+    </footer>
 </body>
 </html>
